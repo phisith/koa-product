@@ -1,5 +1,6 @@
 import Koa from "koa";
 import Router from "koa-router";
+import bodyParser from "koa-bodyparser";
 import { router as proudctRouter } from "./src/routers/product.js";
 
 const PORT = 8000;
@@ -12,6 +13,7 @@ router.get("/", (ctx, next) => {
   ctx.body = "Hello Nimble!";
 });
 
+app.use(bodyParser());
 app.use(router.routes(), router.allowedMethods());
 app.use(proudctRouter.routes(), proudctRouter.allowedMethods());
 
