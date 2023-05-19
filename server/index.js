@@ -20,3 +20,5 @@ app.use(proudctRouter.routes(), proudctRouter.allowedMethods());
 app.listen(PORT, () => {
   console.log(`Server is listen to port ${PORT}`);
 });
+
+export default app;

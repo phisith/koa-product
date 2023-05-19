@@ -25,8 +25,16 @@ export const getProduct = async (ctx, next) => {
     });
     ctx.body = product;
   } else {
+    ctx.body = "Please provide id for view product detail";
+  }
+};
+
+export const getProducts = async (ctx, next) => {
+  try {
     const products = await prisma.product.findMany();
     ctx.body = products;
+  } catch (err) {
+    ctx.body = "Something went wrong!";
   }
 };
 
